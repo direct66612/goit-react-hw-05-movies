@@ -2,6 +2,8 @@ import { Link, useLocation } from 'react-router-dom';
 import List from './MovieList.styled';
 const MovieList = ({ items }) => {
   const location = useLocation();
+  const defaultImage =
+    'https://sysx-legacy.sfo2.cdn.digitaloceanspaces.com/products/lg/nopic.jpg';
   return (
     <List>
       {items.map(({ poster_path, name, title, id }) => (
@@ -11,11 +13,9 @@ const MovieList = ({ items }) => {
               <div>
                 <img
                   src={
-                    poster_path ? (
-                      `https://image.tmdb.org/t/p/w500/${poster_path}`
-                    ) : (
-                      <p>images not found</p>
-                    )
+                    poster_path
+                      ? `https://image.tmdb.org/t/p/w500/${poster_path}`
+                      : defaultImage
                   }
                   alt={name || title}
                   width={250}

@@ -1,7 +1,7 @@
 import { movieWithId } from 'api';
 import { useEffect, useRef, useState } from 'react';
 import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
-import ListMovieDetails from 'components/ListMovieDetails/ListMovieDetails';
+import MovieDetails from 'components/MovieDetails/MovieDetails';
 const MoviesDetailsPage = () => {
   const { movieId } = useParams();
 
@@ -31,7 +31,7 @@ const MoviesDetailsPage = () => {
       {loading && <p>loading...</p>}
       <Link to={backRef.current}>Go back</Link>
 
-      {movie && <ListMovieDetails movie={movie} />}
+      {movie && <MovieDetails movie={movie} />}
 
       <ul>
         <li>

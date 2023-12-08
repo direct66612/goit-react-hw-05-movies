@@ -6,6 +6,8 @@ const Cast = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState([]);
   const [loading, setLoading] = useState(false);
+  const defaultImage =
+    'https://sysx-legacy.sfo2.cdn.digitaloceanspaces.com/products/lg/nopic.jpg';
   useEffect(() => {
     if (!movieId) return;
 
@@ -34,7 +36,7 @@ const Cast = () => {
                 src={
                   profile_path
                     ? `https://image.tmdb.org/t/p/w500/${profile_path}`
-                    : 'not found images'
+                    : defaultImage
                 }
                 alt={name}
                 width={250}

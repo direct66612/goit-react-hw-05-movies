@@ -1,16 +1,16 @@
-import Container from './ListMovieDetails.styled';
-const ListMovieDetails = ({
+import Container from './MovieDetails.styled';
+const MovieDetails = ({
   movie: { poster_path, title, release_date, vote_average, overview, genres },
 }) => {
+  const defaultImage =
+    'https://sysx-legacy.sfo2.cdn.digitaloceanspaces.com/products/lg/nopic.jpg';
   return (
     <Container>
       <img
         src={
-          poster_path ? (
-            `https://image.tmdb.org/t/p/w500/${poster_path}`
-          ) : (
-            <p>images not found</p>
-          )
+          poster_path
+            ? `https://image.tmdb.org/t/p/w500/${poster_path}`
+            : defaultImage
         }
         alt={title}
         width={400}
@@ -35,4 +35,4 @@ const ListMovieDetails = ({
   );
 };
 
-export default ListMovieDetails;
+export default MovieDetails;
